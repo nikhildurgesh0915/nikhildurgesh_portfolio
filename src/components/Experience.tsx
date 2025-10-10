@@ -47,7 +47,7 @@ const Experience = () => {
       </motion.h2>
 
       {/* 🎯 Timeline */}
-      <div className="relative mx-auto max-w-5xl before:absolute before:inset-y-0 before:left-1/2 before:w-[2px] before:bg-gradient-to-b before:from-purple-500 via-blue-400 to-cyan-500 before:opacity-40 before:-translate-x-1/2">
+      <div className="relative mx-auto max-w-5xl before:absolute before:inset-y-0 before:left-1/2 before:w-[2px] before:bg-gradient-to-b before:from-purple-500 via-blue-400 to-cyan-500">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}

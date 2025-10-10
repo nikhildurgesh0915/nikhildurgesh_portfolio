@@ -9,6 +9,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
+import Skills from "@/components/Skills";
 
 export default function HomePage() {
   return (
@@ -23,6 +24,10 @@ export default function HomePage() {
 
       <section id="about">
         <About />
+      </section>
+
+      <section id="skills">
+        <Skills />
       </section>
 
       <section id="experience">

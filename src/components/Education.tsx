@@ -16,10 +16,10 @@ const Education = () => {
     },
     {
       id: 2,
-      degree: "Bachelor of Technology (B.Tech) in Computer Science and Engineering",
+      degree: "Bachelor of Technology in Computer Science and Engineering",
       institution:
         "Kalasalingam Academy of Research and Education, Srivilliputhur",
-      duration: "2019 – 2023",
+      duration: "2020 – 2024",
       score: "CGPA: 7.95 / 10 (160 Credits Earned)",
       description:
         "Graduated with a strong foundation in Computer Science, specializing in Artificial Intelligence, Data Science, and Software Engineering. Developed hands-on expertise through academic and industry projects.",
@@ -27,9 +27,9 @@ const Education = () => {
     {
       id: 3,
       degree: "Higher Secondary Education",
-      institution: "Sivakasi Lions Matriculation Higher Secondary School",
-      duration: "2017 – 2019",
-      score: "Percentage: 88%",
+      institution: "Narayana Junior College",
+      duration: "2018 – 2020",
+      score: "Percentage: 87%",
       description:
         "Focused on core disciplines of Physics, Chemistry, and Mathematics, cultivating analytical and logical reasoning skills.",
     },
