@@ -46,8 +46,8 @@ const Experience = () => {
         Experience
       </motion.h2>
 
-      {/* 🎯 Timeline */}
-      <div className="relative mx-auto max-w-5xl before:absolute before:inset-y-0 before:left-1/2 before:w-[2px] before:bg-gradient-to-b before:from-purple-500 via-blue-400 to-cyan-500">
+      {/* 🎯 Gradient Timeline */}
+      <div className="relative mx-auto max-w-5xl before:absolute before:inset-y-0 before:left-1/2 before:w-[3px] before:bg-gradient-to-b before:from-purple-500 via-blue-400 to-cyan-500 before:rounded-full before:opacity-90">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
@@ -59,18 +59,18 @@ const Experience = () => {
               index % 2 === 0 ? "md:flex-row-reverse" : ""
             } md:items-center`}
           >
-            {/* Timeline Dot */}
-            <div className="absolute left-1/2 -translate-x-1/2 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-purple-500 to-blue-500 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] z-10">
+            {/* 🟣 Timeline Dot */}
+            <div className="absolute left-1/2 -translate-x-1/2 w-10 h-10 flex items-center justify-center bg-gradient-to-br from-purple-500 to-blue-500 rounded-full shadow-[0_0_25px_rgba(59,130,246,0.6)] z-10 animate-pulse">
               {exp.icon}
             </div>
 
-            {/* Card */}
+            {/* 🌈 Experience Card */}
             <div
-              className={`relative w-full md:w-[45%] mt-10 md:mt-0 p-[2px] rounded-2xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 ${
+              className={`relative w-full md:w-[45%] mt-10 md:mt-0 p-[2px] rounded-2xl bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 hover:shadow-[0_0_50px_rgba(59,130,246,0.4)] transition-all duration-500 ${
                 index % 2 === 0 ? "md:ml-auto md:mr-0" : "md:mr-auto md:ml-0"
               }`}
             >
-              <div className="bg-black/50 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/10 hover:border-cyan-400/20 transition-all duration-500 hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]">
+              <div className="bg-black/50 backdrop-blur-xl rounded-2xl p-6 md:p-8 border border-white/10 hover:border-cyan-400/20 transition-all duration-500">
                 <h3 className="text-xl md:text-2xl font-semibold text-white mb-1">
                   {exp.role}
                 </h3>
@@ -85,7 +85,9 @@ const Experience = () => {
                     {exp.mode}
                   </p>
                 </div>
-                <p className="text-gray-300 leading-relaxed">{exp.description}</p>
+                <p className="text-gray-300 leading-relaxed">
+                  {exp.description}
+                </p>
               </div>
             </div>
           </motion.div>

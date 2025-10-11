@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send, User } from "lucide-react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import { FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
@@ -26,10 +26,15 @@ const Contact: React.FC = () => {
 
     emailjs
       .send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
-        formData,
-        "YOUR_PUBLIC_KEY"
+        "service_2lpaut4", // ✅ your service ID
+        "template_2163k94", // ✅ your updated template ID
+        {
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          reply_to: formData.email,
+        },
+        "oUxGPhPy-FgI18JqT" // ✅ your public key
       )
       .then(
         () => {
@@ -110,7 +115,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Social Media Icons with Floating Animation */}
+          {/* Social Media Icons */}
           <div className="flex gap-6 mt-10">
             {socialLinks.map((social, index) => (
               <motion.a
@@ -153,32 +158,41 @@ const Contact: React.FC = () => {
         >
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/5 via-purple-600/5 to-transparent pointer-events-none"></div>
 
+          {/* Name Field with Icon */}
           <div>
             <label className="block text-sm font-semibold mb-2">Full Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              placeholder="Enter your full name"
-              className="w-full bg-black/40 border border-gray-700 rounded-lg px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            />
+            <div className="relative">
+              <User className="absolute left-3 top-3.5 text-gray-400 w-5 h-5" />
+              <input
+                type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                placeholder="Enter your full name"
+                className="w-full bg-black/40 border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              />
+            </div>
           </div>
 
+          {/* Email Field with Icon */}
           <div>
             <label className="block text-sm font-semibold mb-2">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              placeholder="you@example.com"
-              className="w-full bg-black/40 border border-gray-700 rounded-lg px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
-            />
+            <div className="relative">
+              <Mail className="absolute left-3 top-3.5 text-gray-400 w-5 h-5" />
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                placeholder="you@example.com"
+                className="w-full bg-black/40 border border-gray-700 rounded-lg pl-10 pr-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-cyan-500"
+              />
+            </div>
           </div>
 
+          {/* Message Field */}
           <div>
             <label className="block text-sm font-semibold mb-2">Your Message</label>
             <textarea
@@ -191,6 +205,7 @@ const Contact: React.FC = () => {
             />
           </div>
 
+          {/* Submit Button */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
