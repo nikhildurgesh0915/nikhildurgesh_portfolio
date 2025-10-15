@@ -36,18 +36,13 @@ const Hero: React.FC = () => {
   return (
     <>
       <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between bg-[#020617] text-gray-100 px-8 md:px-20 overflow-hidden">
-        {/* === BACKGROUND GRADIENT BLOBS === */}
-        <div className="absolute inset-0 overflow-hidden">
-          {/* Top-left blob */}
-          <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-gradient-to-tr from-cyan-400 via-blue-600 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+        {/* --- Neon Gradient Background Blobs (same as Skills) --- */}
+        <div className="absolute -top-40 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-cyan-400 via-blue-600 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 rounded-full blur-3xl opacity-30 animate-pulse"></div>
 
-          {/* Bottom-right blob */}
-          <div className="absolute bottom-[-120px] right-[-100px] w-[600px] h-[600px] bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 rounded-full blur-3xl opacity-30 animate-pulse"></div>
-        </div>
-
-        {/* === LEFT: Text === */}
+        {/* LEFT: Text Section */}
         <motion.div
-          className="z-10 md:w-1/2 space-y-6 md:space-y-8"
+          className="relative z-10 md:w-1/2 space-y-6 md:space-y-8"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
@@ -79,6 +74,7 @@ const Hero: React.FC = () => {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4">
+            {/* Local resume file */}
             <a
               href="/Resume_NikhilDurgesh.pdf"
               download
@@ -96,9 +92,9 @@ const Hero: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* === RIGHT: Profile Image === */}
+        {/* RIGHT: Profile Image */}
         <motion.div
-          className="relative md:w-1/2 flex justify-center mt-12 md:mt-0 z-10"
+          className="relative z-10 md:w-1/2 flex justify-center mt-12 md:mt-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
@@ -117,7 +113,7 @@ const Hero: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* === Continuous shine animation === */}
+      {/* Continuous shine animation */}
       <style jsx>{`
         @keyframes shine {
           0% {

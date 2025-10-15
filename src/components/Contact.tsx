@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send, User } from "lucide-react";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { FaInstagram, FaLinkedin, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaWhatsapp, FaGithub } from "react-icons/fa";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -26,15 +26,15 @@ const Contact: React.FC = () => {
 
     emailjs
       .send(
-        "service_2lpaut4", // ✅ your service ID
-        "template_2163k94", // ✅ your updated template ID
+        "service_2lpaut4",
+        "template_2163k94",
         {
           name: formData.name,
           email: formData.email,
           message: formData.message,
-          reply_to: formData.email,
+          to_email: "durgesh.techie@gmail.com",
         },
-        "oUxGPhPy-FgI18JqT" // ✅ your public key
+        "oUxGPhPy-FgI18JqT"
       )
       .then(
         () => {
@@ -44,7 +44,7 @@ const Contact: React.FC = () => {
           setTimeout(() => setSent(false), 3000);
         },
         (error) => {
-          console.error("Email error:", error);
+          console.error("EmailJS Error:", error);
           setIsLoading(false);
         }
       );
@@ -52,28 +52,28 @@ const Contact: React.FC = () => {
 
   const socialLinks = [
     {
-      icon: <FaInstagram />,
-      href: "https://www.instagram.com/yourprofile",
-      color: "from-pink-500 to-yellow-400",
-      delay: 0,
+      icon: <FaGithub />,
+      href: "https://github.com/nikhildurgesh0915?tab=repositories",
+      color: "from-gray-700 to-gray-900",
+      delay: 0.6,
     },
     {
       icon: <FaLinkedin />,
-      href: "https://www.linkedin.com/in/yourprofile",
+      href: "https://www.linkedin.com/in/nikhil-durgesh/",
       color: "from-blue-500 to-cyan-400",
-      delay: 0.2,
+      delay: 0,
     },
     {
       icon: <FaTwitter />,
       href: "https://twitter.com/yourprofile",
       color: "from-sky-400 to-blue-600",
-      delay: 0.4,
+      delay: 0.2,
     },
     {
       icon: <FaWhatsapp />,
       href: "https://wa.me/919441275014",
       color: "from-green-400 to-emerald-600",
-      delay: 0.6,
+      delay: 0.4,
     },
   ];
 
@@ -158,7 +158,7 @@ const Contact: React.FC = () => {
         >
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/5 via-purple-600/5 to-transparent pointer-events-none"></div>
 
-          {/* Name Field with Icon */}
+          {/* Name Field */}
           <div>
             <label className="block text-sm font-semibold mb-2">Full Name</label>
             <div className="relative">
@@ -175,7 +175,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Email Field with Icon */}
+          {/* Email Field */}
           <div>
             <label className="block text-sm font-semibold mb-2">Email Address</label>
             <div className="relative">

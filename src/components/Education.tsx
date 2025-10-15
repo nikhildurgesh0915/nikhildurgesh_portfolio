@@ -10,7 +10,7 @@ const Education = () => {
       degree: "Master of Science (M.Sc) in Artificial Intelligence",
       institution: "Brandenburg University of Technology (BTU)",
       duration: "Oct 2025 – Present",
-      score: "CGPA: Exams not yet conducted",
+      // score: "CGPA: Exams not yet conducted",
       description:
         "Currently pursuing advanced studies in Artificial Intelligence, focusing on Machine Learning, Neural Networks, and Autonomous Systems. Engaging in research and applied AI solutions in Germany.",
     },
