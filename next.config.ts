@@ -1,24 +1,26 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    // ❗Allows build to continue even if ESLint finds errors
+    // ✅ Continue build even if ESLint finds errors
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // ❗Allows production build even if there are TypeScript errors
+    // ✅ Continue build even if TypeScript errors exist
     ignoreBuildErrors: true,
   },
+  output: "export", // ✅ Needed for static site generation (GitHub Pages)
   images: {
+    unoptimized: true, // ✅ GitHub Pages doesn't support Next image optimization
     remotePatterns: [
       {
         protocol: "https",
         hostname: "drive.google.com",
-        pathname: "/**", // ✅ Correct wildcard path for Google Drive
+        pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "media.istockphoto.com",
-        pathname: "/**", // ✅ Correct pattern for iStock
+        pathname: "/**",
       },
     ],
   },
