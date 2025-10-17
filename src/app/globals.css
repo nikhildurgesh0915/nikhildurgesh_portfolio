@@ -1,4 +1,4 @@
-/* ✅ Always keep all @import statements at the very top */
+/* âœ… Always keep all @import statements at the very top */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
@@ -14,13 +14,13 @@
 }
 
 
-/* ✅ Define your CSS variables first */
+/* âœ… Define your CSS variables first */
 :root {
   --background: #ffffff;
   --foreground: #171717;
 }
 
-/* ✅ Theme setup */
+/* âœ… Theme setup */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -28,7 +28,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-/* ✅ Dark mode support */
+/* âœ… Dark mode support */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -36,7 +36,7 @@
   }
 }
 
-/* ✅ Use your preferred global font */
+/* âœ… Use your preferred global font */
 body {
   background: var(--background);
   color: var(--foreground);
@@ -117,4 +117,3 @@ body {
   background-size: 200% auto;
   animation: text-shine 8s linear infinite;
 }
-

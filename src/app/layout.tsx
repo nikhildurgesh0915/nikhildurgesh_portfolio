@@ -1,6 +1,6 @@
+import "./globals.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "My Portfolio",
-  description: "Portfolio of Nikhil Durgesh",
+  description: "Portfolio of Enjamoori Pavani",
 };
 
 export default function RootLayout({

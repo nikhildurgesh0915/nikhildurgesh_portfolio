@@ -11,21 +11,55 @@ const poppins = Poppins({
 });
 
 const Hero: React.FC = () => {
+  // 👇 Titles for the dynamic typing effect
+  const titles = ["Certified Python Developer", "Frontend Developer"];
+
   const fullName = "Nikhil Durgesh Katta";
   const [typedName, setTypedName] = useState("");
+  const [displayText, setDisplayText] = useState("");
+  const [titleIndex, setTitleIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
-  // Typing + looping animation for name
+  // 🧠 Typing animation for Name
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
       setTypedName(fullName.slice(0, i));
       i++;
-      if (i > fullName.length) i = 0;
-    }, 150);
+      if (i > fullName.length) {
+        clearInterval(interval);
+      }
+    }, 120);
     return () => clearInterval(interval);
   }, []);
 
-  // Smooth scroll to About section
+  // 🧠 Typing + deleting loop for Subtitles
+  useEffect(() => {
+    const currentTitle = titles[titleIndex];
+    const typingSpeed = isDeleting ? 60 : 120;
+
+    const handleTyping = () => {
+      if (!isDeleting) {
+        if (displayText.length < currentTitle.length) {
+          setDisplayText(currentTitle.slice(0, displayText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), 1200);
+        }
+      } else {
+        if (displayText.length > 0) {
+          setDisplayText(currentTitle.slice(0, displayText.length - 1));
+        } else {
+          setIsDeleting(false);
+          setTitleIndex((prev) => (prev + 1) % titles.length);
+        }
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, titleIndex]);
+
+  // 🌐 Smooth scroll to "About" section
   const handleScrollToAbout = () => {
     const aboutSection = document.getElementById("about");
     if (aboutSection) {
@@ -36,7 +70,7 @@ const Hero: React.FC = () => {
   return (
     <>
       <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between bg-[#020617] text-gray-100 px-8 md:px-20 overflow-hidden">
-        {/* --- Neon Gradient Background Blobs (same as Skills) --- */}
+        {/* --- Neon Gradient Background Blobs --- */}
         <div className="absolute -top-40 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-cyan-400 via-blue-600 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 rounded-full blur-3xl opacity-30 animate-pulse"></div>
 
@@ -52,14 +86,16 @@ const Hero: React.FC = () => {
           >
             <span className="block text-gray-300">Hi, I’m</span>
 
-            {/* Animated Name with shine effect */}
+            {/* ✨ Typing Animated Name */}
             <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent transition-transform duration-300 ease-in-out hover:scale-110 animate-shine">
               {typedName}
+              <span className="border-r-2 border-cyan-400 ml-1 animate-pulse"></span>
             </span>
 
-            {/* Continuously Animated Subtitle */}
+            {/* ✨ Dynamic Subtitle Typing */}
             <span className="block text-xl md:text-2xl font-semibold bg-gradient-to-r from-green-400 via-yellow-400 to-pink-500 bg-clip-text text-transparent mt-2 animate-shine">
-              Certified Python Developer
+              {displayText}
+              <span className="border-r-2 border-pink-400 ml-1 animate-pulse"></span>
             </span>
           </h1>
 
@@ -74,7 +110,6 @@ const Hero: React.FC = () => {
 
           {/* Buttons */}
           <div className="flex flex-wrap gap-4">
-            {/* Local resume file */}
             <a
               href="/Resume_NikhilDurgesh.pdf"
               download
