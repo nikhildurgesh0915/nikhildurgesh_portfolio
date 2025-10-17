@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
 
   return (
     <>
-      <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between bg-[#020617] text-gray-100 px-8 md:px-20 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between bg-[#020617] text-gray-100 px-8 md:px-20 overflow-hidden mt-16 mb:mt-0">
         {/* --- Neon Gradient Background Blobs --- */}
         <div className="absolute -top-40 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-cyan-400 via-blue-600 to-purple-600 rounded-full blur-3xl opacity-30 animate-pulse"></div>
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 rounded-full blur-3xl opacity-30 animate-pulse"></div>
@@ -140,7 +140,7 @@ const Hero: React.FC = () => {
                 src={require("../assets/nikhil.jpg")}
                 alt="Nikhil Durgesh Katta"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
                 priority
               />
             </div>
