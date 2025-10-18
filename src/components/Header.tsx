@@ -17,7 +17,7 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  // Track active section on scroll
+  // 🧭 Track active section on scroll
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight / 2;
@@ -49,7 +49,7 @@ const Header: React.FC = () => {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-lg border-b border-white/20 shadow-lg"
+      className="fixed top-0 left-0 w-full z-50 bg-[#020617]/90 backdrop-blur-lg border-b border-white/20 shadow-lg"
     >
       <nav className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
         {/* LOGO */}
@@ -105,7 +105,11 @@ const Header: React.FC = () => {
           className="md:hidden cursor-pointer"
           onClick={() => setIsOpen(!isOpen)}
         >
-          {isOpen ? <X className="text-white w-7 h-7" /> : <Menu className="text-white w-7 h-7" />}
+          {isOpen ? (
+            <X className="text-white w-7 h-7" />
+          ) : (
+            <Menu className="text-white w-7 h-7" />
+          )}
         </motion.div>
       </nav>
 
@@ -117,7 +121,7 @@ const Header: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="md:hidden absolute top-[72px] left-0 w-full bg-black/60 backdrop-blur-xl border-t border-white/20"
+            className="md:hidden absolute top-[72px] left-0 w-full bg-[#020617]/95 backdrop-blur-xl border-t border-white/20"
           >
             <ul className="flex flex-col items-center py-8 space-y-6">
               {menuItems.map((item, index) => (
